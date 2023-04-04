@@ -23,9 +23,9 @@ def read_root():
     except Exception as e:
         return templates.TemplateResponse("error.html", status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-@app.get("/test")
-def test_route():
-    return Response("Testing CI-CD")
+# @app.get("/test")
+# def test_route():
+#     return Response("Testing CI-CD")
 
 
 app.include_router(authentication.router)
@@ -36,4 +36,4 @@ app.add_middleware(SessionMiddleware, secret_key="!secret")
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000, debug=True)
+    uvicorn.run(app, host="localhost", port=8000, debug=True)
